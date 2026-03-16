@@ -24,6 +24,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.ui.zIndex
 import coil.ImageLoader
@@ -160,7 +161,7 @@ fun OnboardingScreen(onStartClick: () -> Unit) {
         // Discuter Button Positioned for UX (thumb position) - on top of everything
         if (animationStage >= 3) {
             Y2kButton(
-                text = "話す",
+                text = stringResource(R.string.onboarding_start_button),
                 onClick = onStartClick,
                 modifier = Modifier
                     .align(Alignment.BottomCenter)

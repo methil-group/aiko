@@ -16,6 +16,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.compose.material3.NavigationBarItemDefaults
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.methil.aiko.ui.navigation.AikoScreen
 import com.methil.aiko.ui.theme.DarkPurple
@@ -60,7 +61,7 @@ fun MainScreen(
                                 )
                             }
                         },
-                        label = { Text(screen.title, fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace) },
+                        label = { Text(stringResource(screen.titleRes), fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace) },
                         selected = selected,
                         colors = NavigationBarItemDefaults.colors(
                             selectedIconColor = DarkPurple,

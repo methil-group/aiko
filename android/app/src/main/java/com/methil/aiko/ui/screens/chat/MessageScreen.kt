@@ -11,6 +11,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
+import androidx.compose.ui.res.stringResource
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -107,7 +108,7 @@ fun MessageScreen(
                     horizontalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
                     // Left Window: Mood/Profile
-                    XpWindow(title = "感情", modifier = Modifier.weight(1f)) {
+                    XpWindow(title = stringResource(R.string.chat_mood_title), modifier = Modifier.weight(1f)) {
                         Image(
                             painter = painterResource(id = R.drawable.e_girl_emo),
                             contentDescription = null,
@@ -117,7 +118,7 @@ fun MessageScreen(
                     }
 
                     // Right Window: Stats
-                    XpWindow(title = "身体の状態", modifier = Modifier.weight(1.5f)) {
+                    XpWindow(title = stringResource(R.string.chat_stats_title), modifier = Modifier.weight(1.5f)) {
                         Column(
                             modifier = Modifier.padding(8.dp),
                             verticalArrangement = Arrangement.spacedBy(4.dp)
@@ -146,14 +147,14 @@ fun MessageScreen(
                         IconButton(onClick = onBack) {
                             Icon(
                                 painter = painterResource(id = R.drawable.kb_erase), // Use erase icon as back for now
-                                contentDescription = "Back",
+                                contentDescription = stringResource(R.string.chat_back_content_description),
                                 tint = Color.White,
                                 modifier = Modifier.size(24.dp)
                             )
                         }
                         Spacer(modifier = Modifier.width(8.dp))
                         AikoHeader(
-                            text = "${uiState.characterName} Chat",
+                            text = "${uiState.characterName} ${stringResource(R.string.chat_header_suffix)}",
                             fontSize = 20.sp
                         )
                     }
@@ -222,7 +223,7 @@ fun MessageScreen(
                 Snackbar(
                     action = {
                         TextButton(onClick = { viewModel.dismissError() }) {
-                            Text("Dismiss", color = Color.White)
+                            Text(stringResource(R.string.chat_dismiss), color = Color.White)
                         }
                     },
                     modifier = Modifier.padding(16.dp).align(Alignment.BottomCenter)
@@ -405,7 +406,7 @@ fun Y2kInputArea(
                 ) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(
-                            text = if (text.isEmpty() && !isKeyboardOpen) "Aikoと話す" else text,
+                            text = if (text.isEmpty() && !isKeyboardOpen) stringResource(R.string.chat_input_placeholder) else text,
                             color = if (text.isEmpty() && !isKeyboardOpen) Color.Gray else DarkPurple,
                             fontSize = 16.sp
                         )
@@ -423,7 +424,7 @@ fun Y2kInputArea(
                 IconButton(onClick = onSend) {
                     Icon(
                         painter = painterResource(id = R.drawable.send_ico),
-                        contentDescription = "Send",
+                        contentDescription = stringResource(R.string.chat_send_content_description),
                         tint = DarkPurple,
                         modifier = Modifier.size(24.dp)
                     )

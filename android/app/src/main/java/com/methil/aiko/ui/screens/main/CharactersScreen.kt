@@ -30,6 +30,7 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.methil.aiko.R
@@ -57,13 +58,13 @@ fun CharactersScreen(
             CircularProgressIndicator(color = DarkPurple)
         } else if (errorMessage != null) {
             Text(
-                text = "Error: $errorMessage", 
+                text = stringResource(R.string.error_loading_characters, errorMessage!!), 
                 color = MaterialTheme.colorScheme.error,
                 fontFamily = FontFamily.Monospace
             )
         } else if (characters.isEmpty()) {
             Text(
-                text = "No characters found.",
+                text = stringResource(R.string.no_characters_found),
                 fontFamily = FontFamily.Monospace,
                 color = DarkPurple
             )
@@ -74,7 +75,7 @@ fun CharactersScreen(
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 item {
-                    AikoHeader(text = "CHARACTERS")
+                    AikoHeader(text = stringResource(R.string.characters_title))
                 }
                 
                 items(characters) { character ->
@@ -123,7 +124,7 @@ fun CharactersScreen(
                                             shape = RectangleShape
                                         ) {
                                             Text(
-                                                text = "PUBLIC",
+                                                text = stringResource(R.string.characters_public_tag),
                                                 modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp),
                                                 style = androidx.compose.ui.text.TextStyle(
                                                     color = Color.White,

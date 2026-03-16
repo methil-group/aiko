@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -93,7 +94,7 @@ fun AuthScreen(
 
             Box(modifier = Modifier.fillMaxSize()) {
                 XpWindow(
-                    title = if (isLogin) "ログイン - Login" else "登録 - Register",
+                    title = if (isLogin) stringResource(R.string.login_title) else stringResource(R.string.register_title),
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 24.dp)
@@ -109,7 +110,7 @@ fun AuthScreen(
                         verticalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
                         Text(
-                            text = if (isLogin) "Bon retour !" else "Bienvenue !",
+                            text = if (isLogin) stringResource(R.string.welcome_back) else stringResource(R.string.welcome_new),
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold,
                             color = DarkPurple
@@ -117,7 +118,7 @@ fun AuthScreen(
 
                         // Input Fields
                         AuthInputField(
-                            label = "Username",
+                            label = stringResource(R.string.username_label),
                             value = username,
                             isActive = activeField == 0 && isKeyboardOpen,
                             cursorAlpha = cursorAlpha,
@@ -130,7 +131,7 @@ fun AuthScreen(
 
                         if (!isLogin) {
                             AuthInputField(
-                                label = "Nom / Pseudo",
+                                label = stringResource(R.string.name_label),
                                 value = name,
                                 isActive = activeField == 2 && isKeyboardOpen,
                                 cursorAlpha = cursorAlpha,
@@ -143,7 +144,7 @@ fun AuthScreen(
                         }
 
                         AuthInputField(
-                            label = "Password",
+                            label = stringResource(R.string.password_label),
                             value = password,
                             isActive = activeField == 1 && isKeyboardOpen,
                             cursorAlpha = cursorAlpha,
@@ -171,7 +172,7 @@ fun AuthScreen(
                             onClick = {
                                 if (username.isBlank() || password.isBlank()) return@Button
                                 if (password.length < 8) {
-                                    errorMessage = "Le mot de passe doit faire au moins 8 caractères"
+                                    errorMessage = context.getString(R.string.error_password_too_short)
                                     return@Button
                                 }
                                 isLoading = true
@@ -184,7 +185,7 @@ fun AuthScreen(
                                             onAuthSuccess(it.token)
                                         }.onFailure {
                                             Log.e("AuthScreen", "Login failed", it)
-                                            errorMessage = "Login failed: ${it.message}"
+                                            errorMessage = context.getString(R.string.error_login_failed, it.message ?: "")
                                         }
                                     } else {
                                         val result = authService.register(RegisterRequest(username, name, password))
@@ -195,11 +196,11 @@ fun AuthScreen(
                                                 onAuthSuccess(authRes.token)
                                             }.onFailure { loginErr ->
                                                 Log.e("AuthScreen", "Login after registration failed", loginErr)
-                                                errorMessage = "Login failed: ${loginErr.message}"
+                                                errorMessage = context.getString(R.string.error_login_failed, loginErr.message ?: "")
                                             }
                                         }.onFailure {
                                             Log.e("AuthScreen", "Registration failed", it)
-                                            errorMessage = "Registration failed: ${it.message}"
+                                            errorMessage = context.getString(R.string.error_registration_failed, it.message ?: "")
                                         }
                                     }
                                     isLoading = false
@@ -217,7 +218,7 @@ fun AuthScreen(
                                 CircularProgressIndicator(modifier = Modifier.size(24.dp), color = DarkPurple)
                             } else {
                                 Text(
-                                    text = if (isLogin) "Se connecter" else "S'enregistrer",
+                                    text = if (isLogin) stringResource(R.string.login_button) else stringResource(R.string.register_button),
                                     color = DarkPurple,
                                     fontWeight = FontWeight.Bold
                                 )
@@ -225,7 +226,7 @@ fun AuthScreen(
                         }
 
                         Text(
-                            text = if (isLogin) "Pas de compte ? S'enregistrer" else "Déjà un compte ? Se connecter",
+                            text = if (isLogin) stringResource(R.string.no_account_link) else stringResource(R.string.has_account_link),
                             modifier = Modifier.clickable { 
                                 isLogin = !isLogin
                                 errorMessage = null
