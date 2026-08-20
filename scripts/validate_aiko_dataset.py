@@ -42,6 +42,10 @@ def main() -> None:
 
             if row.get("split") not in {"train", "eval"}:
                 fail(f"invalid split for {row_id}")
+            if not isinstance(row.get("category"), str) or not row["category"]:
+                fail(f"missing category for {row_id}")
+            if not isinstance(row.get("source"), str) or not row["source"].endswith(".xml"):
+                fail(f"missing XML source for {row_id}")
 
             messages = row.get("messages")
             if not isinstance(messages, list) or len(messages) < 3:

@@ -1,6 +1,6 @@
 # Dataset SFT Aiko
 
-`aiko_sft.jsonl` est le dataset conversationnel canonique pour le fine-tuning SFT LoRA d'Aiko.
+`aiko_sft.jsonl` est le dataset conversationnel compilé pour le fine-tuning SFT LoRA d'Aiko. Les sources lisibles sont les XML classés dans [dataset/](dataset/).
 
 ## Format
 
@@ -18,7 +18,14 @@ Chaque ligne est un objet JSON indépendant :
 }
 ```
 
-Le system prompt est répété dans chaque exemple pour que chaque conversation soit autonome. Sa version de référence est [aiko_system_prompt.txt](aiko_system_prompt.txt). Le script de validation vérifie que les deux restent identiques.
+Le system prompt est répété dans chaque exemple pour que chaque conversation soit autonome. Sa version de référence est [aiko_system_prompt.txt](aiko_system_prompt.txt). Le compilateur [compile_dataset.py](../scripts/compile_dataset.py) l'injecte dans chaque ligne et le script de validation vérifie que les deux restent identiques.
+
+Les conversations XML sont rangées par catégorie dans [dataset/README.md](dataset/README.md). Après toute modification XML, compiler puis valider :
+
+```bash
+python3 scripts/compile_dataset.py
+python3 scripts/validate_aiko_dataset.py
+```
 
 Le dataset mélange volontairement :
 
