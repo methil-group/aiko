@@ -41,6 +41,8 @@ Chaque XML contient son preprompt système complet dans `<system>`. Les variante
 
 Chaque réponse assistant porte une trace de planification en quatre phrases courtes et ordonnées : `interpretation`, `context`, `plan`, puis `constraint`. Le plan est spécifique au tour de parole ; il ne s'agit pas d'une chaîne de pensée privée, mais d'une justification supervisée, concrète et directement liée à la réponse cible.
 
+Les nouvelles conversations varient les kaomojis selon l'émotion ou le rythme du message (`(｡•̀ᴗ-)✧`, `(￣ω￣;)`, `(╥﹏╥)`, `(ง •̀_•́)ง`, etc.). Ils servent le ton SMS et ne sont pas ajoutés mécaniquement à chaque phrase.
+
 ## Compiler
 
 Depuis la racine du dépôt :
