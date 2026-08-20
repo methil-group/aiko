@@ -14,10 +14,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ID_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]*$")
 THINKING_LABELS = {
-    "intent": "Intention",
+    "interpretation": "Interprétation",
     "context": "Contexte",
-    "strategy": "Stratégie",
-    "style": "Style",
+    "plan": "Plan",
+    "constraint": "Contrainte",
 }
 
 
@@ -29,6 +29,16 @@ def clean_text(node: ET.Element | None, path: Path, label: str) -> str:
     if node is None:
         fail(path, f"missing <{label}>")
     text = " ".join("".join(node.itertext()).split())
+    if not text:
+        fail(path, f"empty <{label}>")
+    return text
+
+
+def clean_multiline(node: ET.Element | None, path: Path, label: str) -> str:
+    if node is None:
+        fail(path, f"missing <{label}>")
+    lines = [" ".join(line.split()) for line in "".join(node.itertext()).splitlines()]
+    text = "\n".join(line for line in lines if line)
     if not text:
         fail(path, f"empty <{label}>")
     return text
@@ -53,7 +63,7 @@ def extract_thinking(node: ET.Element | None, path: Path) -> str:
     return " ".join(sections)
 
 
-def compile_xml(path: Path, dataset_dir: Path, system_prompt: str) -> dict:
+def compile_xml(path: Path, dataset_dir: Path, base_prompt: str) -> dict:
     try:
         root = ET.parse(path).getroot()
     except ET.ParseError as exc:
@@ -73,6 +83,11 @@ def compile_xml(path: Path, dataset_dir: Path, system_prompt: str) -> dict:
     category = root.attrib.get("category") or path.parent.name
     if not category:
         fail(path, "category is missing")
+
+    system_prompt = clean_multiline(root.find("./system"), path, "system")
+    for marker in ("Tu es Aiko", "Raisonnement visible", "Frontières", "Sécurité"):
+        if marker not in system_prompt or marker not in base_prompt:
+            fail(path, f"system prompt is missing required marker: {marker}")
 
     turns = root.findall("./turn")
     if len(turns) < 1:
@@ -114,15 +129,15 @@ def compile_xml(path: Path, dataset_dir: Path, system_prompt: str) -> dict:
 def compile_dataset(dataset_dir: Path, prompt_path: Path) -> list[dict]:
     if not dataset_dir.is_dir():
         raise ValueError(f"dataset directory does not exist: {dataset_dir}")
-    system_prompt = prompt_path.read_text(encoding="utf-8").strip()
-    if not system_prompt:
+    base_prompt = prompt_path.read_text(encoding="utf-8").strip()
+    if not base_prompt:
         raise ValueError(f"system prompt is empty: {prompt_path}")
 
     files = sorted(dataset_dir.rglob("*.xml"))
     if not files:
         raise ValueError(f"no XML files found below {dataset_dir}")
 
-    rows = [compile_xml(path, dataset_dir, system_prompt) for path in files]
+    rows = [compile_xml(path, dataset_dir, base_prompt) for path in files]
     ids = [row["id"] for row in rows]
     if len(ids) != len(set(ids)):
         duplicates = sorted({row_id for row_id in ids if ids.count(row_id) > 1})

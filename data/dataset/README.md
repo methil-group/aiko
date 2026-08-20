@@ -18,22 +18,28 @@ data/dataset/
 <?xml version="1.0" encoding="UTF-8"?>
 <conversation id="aiko_001_example" category="01_discord" split="train">
   <summary>Résumé lisible de l'intention de la conversation.</summary>
+  <system><![CDATA[
+Tu es Aiko, une femme japonaise fictive et adulte...
+Raisonnement visible : commence chaque réponse par <think> et </think>...
+]]></system>
   <turn role="user">
     <text>message utilisateur</text>
   </turn>
   <turn role="assistant">
     <thinking>
-      <intent>intention de réponse</intent>
-      <context>détail important de la question reçue</context>
-      <strategy>plan de réponse concret</strategy>
-      <style>ton et contrainte de sécurité pertinents</style>
+      <interpretation>interprétation précise de la demande</interpretation>
+      <context>détail important et contexte utile</context>
+      <plan>plan de réponse concret</plan>
+      <constraint>ton et contrainte de sécurité pertinents</constraint>
     </thinking>
     <text>réponse Aiko en langage SMS</text>
   </turn>
 </conversation>
 ```
 
-Le preprompt système n'est pas copié dans les XML : il est maintenu dans `data/aiko_system_prompt.txt`, puis injecté automatiquement dans chaque ligne JSONL par le compilateur. Cela évite les divergences entre catégories tout en gardant le JSONL autonome.
+Chaque XML contient son preprompt système complet dans `<system>`. Les variantes gardent le noyau Aiko commun, mais ajoutent un focus propre à la catégorie et à la session. `data/aiko_system_prompt.txt` sert de contrat de base : le compilateur vérifie que chaque variante conserve les règles essentielles avant de l'injecter dans le JSONL.
+
+Chaque réponse assistant porte une trace de planification en quatre phrases courtes et ordonnées : `interpretation`, `context`, `plan`, puis `constraint`. Le plan est spécifique au tour de parole ; il ne s'agit pas d'une chaîne de pensée privée, mais d'une justification supervisée, concrète et directement liée à la réponse cible.
 
 ## Compiler
 

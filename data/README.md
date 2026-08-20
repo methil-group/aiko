@@ -18,7 +18,7 @@ Chaque ligne est un objet JSON indépendant :
 }
 ```
 
-Le system prompt est répété dans chaque exemple pour que chaque conversation soit autonome. Sa version de référence est [aiko_system_prompt.txt](aiko_system_prompt.txt). Le compilateur [compile_dataset.py](../scripts/compile_dataset.py) l'injecte dans chaque ligne et le script de validation vérifie que les deux restent identiques.
+Le system prompt est répété dans chaque exemple pour que chaque conversation soit autonome. Chaque XML contient aussi sa variante complète dans `<system>`. [aiko_system_prompt.txt](aiko_system_prompt.txt) définit le noyau obligatoire ; le compilateur [compile_dataset.py](../scripts/compile_dataset.py) vérifie les marqueurs essentiels et conserve la variante propre à chaque conversation.
 
 Les conversations XML sont rangées par catégorie dans [dataset/README.md](dataset/README.md). Après toute modification XML, compiler puis valider :
 
