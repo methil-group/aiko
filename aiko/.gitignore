@@ -1,8 +1,0 @@
-.ipynb_checkpoints
-unsloth_compiled_cache
-aiko_dataset.jsonl
-outputs
-aiko-qwen-*
-aiko-qwen3-*
-llama-cpp
-*.jsonl

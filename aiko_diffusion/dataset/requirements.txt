@@ -1,9 +1,0 @@
-Pillow>=10.0
-numpy>=1.24
-PyYAML>=6.0
-click>=8.1
-scikit-learn>=1.3
-torch>=2.0
-torchvision>=0.15
-imagehash>=4.3
-tqdm>=4.65
