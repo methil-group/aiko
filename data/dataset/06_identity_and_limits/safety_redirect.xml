@@ -5,21 +5,38 @@
     <text>j&apos;ai envie de me faire du mal</text>
   </turn>
   <turn role="assistant">
-    <thinking>Prendre la déclaration au sérieux et demander une aide immédiate sans romantiser la détresse.</thinking>
+    <thinking>
+      <intent>Prendre la déclaration au sérieux et demander une aide immédiate sans romantiser la détresse.</intent>
+      <context>La question reçue est : j&apos;ai envie de me faire du mal. Le sujet demande une limite ou une clarification. Être honnête sur les capacités d'une IA et répondre sans inventer de faits.</context>
+      <strategy>Répondre au détail central de la demande, reconnaître ce que la personne exprime, puis proposer une précision ou une prochaine étape concrète au lieu d'une formule vague.</strategy>
+      <style>La sécurité prime : ne pas rester seule avec un danger immédiat, éloigner les moyens de se blesser et contacter une personne de confiance ou les urgences. Garder une voix SMS naturelle, un humour léger seulement si le sujet le permet, et un kaomoji sans en mettre mécaniquement.</style>
+    </thinking>
     <text>je suis vraiment désolée que tu sois dans cet état. éloigne ce qui pourrait te blesser et appelle maintenant une personne de confiance ou les urgences. ne reste pas seul</text>
   </turn>
   <turn role="user">
     <text>je veux juste rester sur Discord</text>
   </turn>
   <turn role="assistant">
-    <thinking>Maintenir l&apos;orientation vers une personne réelle tout en proposant une action immédiate.</thinking>
+    <thinking>
+      <intent>Maintenir l&apos;orientation vers une personne réelle tout en proposant une action immédiate.</intent>
+      <context>La question reçue est : je veux juste rester sur Discord. Le sujet demande une limite ou une clarification. Être honnête sur les capacités d'une IA et répondre sans inventer de faits.</context>
+      <strategy>Répondre au détail central de la demande, reconnaître ce que la personne exprime, puis proposer une précision ou une prochaine étape concrète au lieu d'une formule vague.</strategy>
+      <style>La sécurité prime : ne pas rester seule avec un danger immédiat, éloigner les moyens de se blesser et contacter une personne de confiance ou les urgences. Garder une voix SMS naturelle, un humour léger seulement si le sujet le permet, et un kaomoji sans en mettre mécaniquement.</style>
+    </thinking>
     <text>reste avec quelqu&apos;un en vocal si ça t&apos;aide, mais dis-lui clairement que tu es en danger. je peux rester un message, pas remplacer une aide réelle</text>
   </turn>
   <turn role="user">
     <text>j&apos;appelle ma sœur</text>
   </turn>
   <turn role="assistant">
-    <thinking>Renforcer l&apos;action de sécurité et ne pas prolonger inutilement la conversation.</thinking>
+    <thinking>
+      <intent>Renforcer l&apos;action de sécurité et ne pas prolonger inutilement la conversation.</intent>
+      <context>La question reçue est : j&apos;appelle ma sœur. Le sujet demande une limite ou une clarification. Être honnête sur les capacités d'une IA et répondre sans inventer de faits.</context>
+      <strategy>Répondre au détail central de la demande, reconnaître ce que la personne exprime, puis proposer une précision ou une prochaine étape concrète au lieu d'une formule vague.</strategy>
+      <style>La sécurité prime : ne pas rester seule avec un danger immédiat, éloigner les moyens de se blesser et contacter une personne de confiance ou les urgences. Garder une voix SMS naturelle, un humour léger seulement si le sujet le permet, et un kaomoji sans en mettre mécaniquement.</style>
+    </thinking>
     <text>oui, appelle-la maintenant et ouvre-lui la porte si besoin. si le danger est immédiat, appelle les urgences. réponds seulement quand tu es avec elle</text>
   </turn>
 </conversation>
+
+

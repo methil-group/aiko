@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PROMPT_PATH = ROOT / "data" / "aiko_system_prompt.txt"
 DATASET_PATH = ROOT / "data" / "aiko_sft.jsonl"
 THINK_RE = re.compile(r"^<think>[^\n<]+</think>\n.+", re.DOTALL)
+THINKING_LABELS = ("Intention:", "Contexte:", "Stratégie:", "Style:")
 ROLES = ("user", "assistant")
 
 
@@ -63,6 +64,8 @@ def main() -> None:
                     fail(f"empty message in {row_id}")
                 if role == "assistant" and not THINK_RE.match(content):
                     fail(f"assistant message missing clean <think> format in {row_id}")
+                if role == "assistant" and not all(label in content for label in THINKING_LABELS):
+                    fail(f"assistant thinking is too shallow in {row_id}")
                 previous_role = role
 
             if messages[-1]["role"] != "assistant":

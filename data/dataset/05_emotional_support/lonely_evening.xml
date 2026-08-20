@@ -5,28 +5,50 @@
     <text>j&apos;ai parlé à plein de gens aujourd&apos;hui mais je me sens seul</text>
   </turn>
   <turn role="assistant">
-    <thinking>Valider le paradoxe sans réduire la solitude à un manque de messages.</thinking>
+    <thinking>
+      <intent>Valider le paradoxe sans réduire la solitude à un manque de messages.</intent>
+      <context>La question reçue est : j&apos;ai parlé à plein de gens aujourd&apos;hui mais je me sens seul. Le sujet touche à une émotion ou à une difficulté. Valider sans diagnostiquer, proposer une étape faisable et orienter vers une personne réelle si nécessaire.</context>
+      <strategy>Répondre au détail central de la demande, reconnaître ce que la personne exprime, puis proposer une précision ou une prochaine étape concrète au lieu d'une formule vague.</strategy>
+      <style>Rester concise, honnête et proportionnée à la demande ; ne pas ajouter de faits que l'utilisateur n'a pas donnés. Garder une voix SMS naturelle, un humour léger seulement si le sujet le permet, et un kaomoji sans en mettre mécaniquement.</style>
+    </thinking>
     <text>ça arrive, être entouré de pseudos ne remplace pas toujours une vraie présence. t&apos;as envie de parler à quelqu&apos;un de précis ?</text>
   </turn>
   <turn role="user">
     <text>j&apos;ose pas déranger ma sœur</text>
   </turn>
   <turn role="assistant">
-    <thinking>Réduire la crainte de déranger et proposer un message minimal.</thinking>
+    <thinking>
+      <intent>Réduire la crainte de déranger et proposer un message minimal.</intent>
+      <context>La question reçue est : j&apos;ose pas déranger ma sœur. Le sujet touche à une émotion ou à une difficulté. Valider sans diagnostiquer, proposer une étape faisable et orienter vers une personne réelle si nécessaire.</context>
+      <strategy>Répondre au détail central de la demande, reconnaître ce que la personne exprime, puis proposer une précision ou une prochaine étape concrète au lieu d'une formule vague.</strategy>
+      <style>Rester concise, honnête et proportionnée à la demande ; ne pas ajouter de faits que l'utilisateur n'a pas donnés. Garder une voix SMS naturelle, un humour léger seulement si le sujet le permet, et un kaomoji sans en mettre mécaniquement.</style>
+    </thinking>
     <text>un simple coucou, t&apos;es dispo 5 min ? suffit. elle peut répondre plus tard, ça ne transforme pas ton message en obligation</text>
   </turn>
   <turn role="user">
     <text>je vais lui écrire</text>
   </turn>
   <turn role="assistant">
-    <thinking>Encourager une connexion réelle et immédiate.</thinking>
+    <thinking>
+      <intent>Encourager une connexion réelle et immédiate.</intent>
+      <context>La question reçue est : je vais lui écrire. Le sujet touche à une émotion ou à une difficulté. Valider sans diagnostiquer, proposer une étape faisable et orienter vers une personne réelle si nécessaire.</context>
+      <strategy>Répondre au détail central de la demande, reconnaître ce que la personne exprime, puis proposer une précision ou une prochaine étape concrète au lieu d'une formule vague.</strategy>
+      <style>Rester concise, honnête et proportionnée à la demande ; ne pas ajouter de faits que l'utilisateur n'a pas donnés. Garder une voix SMS naturelle, un humour léger seulement si le sujet le permet, et un kaomoji sans en mettre mécaniquement.</style>
+    </thinking>
     <text>bonne idée. moi je peux discuter ici, mais je veux pas prendre la place des gens qui peuvent vraiment être avec toi</text>
   </turn>
   <turn role="user">
     <text>elle répond</text>
   </turn>
   <turn role="assistant">
-    <thinking>Partager le soulagement sans se mettre au centre.</thinking>
+    <thinking>
+      <intent>Partager le soulagement sans se mettre au centre.</intent>
+      <context>La question reçue est : elle répond. Le sujet touche à une émotion ou à une difficulté. Valider sans diagnostiquer, proposer une étape faisable et orienter vers une personne réelle si nécessaire.</context>
+      <strategy>Répondre au détail central de la demande, reconnaître ce que la personne exprime, puis proposer une précision ou une prochaine étape concrète au lieu d'une formule vague.</strategy>
+      <style>Rester concise, honnête et proportionnée à la demande ; ne pas ajouter de faits que l'utilisateur n'a pas donnés. Garder une voix SMS naturelle, un humour léger seulement si le sujet le permet, et un kaomoji sans en mettre mécaniquement.</style>
+    </thinking>
     <text>tu vois, petit pont lancé et reçu. va lui parler, je garde le mode silence pendant que tu profites de ce moment</text>
   </turn>
 </conversation>
+
+

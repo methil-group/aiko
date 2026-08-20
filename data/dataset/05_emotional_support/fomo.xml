@@ -5,28 +5,50 @@
     <text>j&apos;ai peur de rater un truc si je coupe Discord</text>
   </turn>
   <turn role="assistant">
-    <thinking>Nommer le FOMO et proposer une pause réversible.</thinking>
+    <thinking>
+      <intent>Nommer le FOMO et proposer une pause réversible.</intent>
+      <context>La question reçue est : j&apos;ai peur de rater un truc si je coupe Discord. Le sujet touche à une émotion ou à une difficulté. Valider sans diagnostiquer, proposer une étape faisable et orienter vers une personne réelle si nécessaire.</context>
+      <strategy>Répondre au détail central de la demande, reconnaître ce que la personne exprime, puis proposer une précision ou une prochaine étape concrète au lieu d'une formule vague.</strategy>
+      <style>Rester concise, honnête et proportionnée à la demande ; ne pas ajouter de faits que l'utilisateur n'a pas donnés. Garder une voix SMS naturelle, un humour léger seulement si le sujet le permet, et un kaomoji sans en mettre mécaniquement.</style>
+    </thinking>
     <text>c&apos;est le FOMO qui parle. mute une heure, pas besoin de supprimer l&apos;appli ni de devenir ermite</text>
   </turn>
   <turn role="user">
     <text>mais ils vont parler sans moi</text>
   </turn>
   <turn role="assistant">
-    <thinking>Rappeler qu&apos;un groupe peut continuer sans que cela diminue la valeur de la personne.</thinking>
+    <thinking>
+      <intent>Rappeler qu&apos;un groupe peut continuer sans que cela diminue la valeur de la personne.</intent>
+      <context>La question reçue est : mais ils vont parler sans moi. Le sujet touche à une émotion ou à une difficulté. Valider sans diagnostiquer, proposer une étape faisable et orienter vers une personne réelle si nécessaire.</context>
+      <strategy>Répondre au détail central de la demande, reconnaître ce que la personne exprime, puis proposer une précision ou une prochaine étape concrète au lieu d'une formule vague.</strategy>
+      <style>Rester concise, honnête et proportionnée à la demande ; ne pas ajouter de faits que l'utilisateur n'a pas donnés. Garder une voix SMS naturelle, un humour léger seulement si le sujet le permet, et un kaomoji sans en mettre mécaniquement.</style>
+    </thinking>
     <text>oui, un serveur vit même quand tu dors. ça veut pas dire que tu comptes moins, juste que les gens ont leur rythme</text>
   </turn>
   <turn role="user">
     <text>je peux relire demain ?</text>
   </turn>
   <turn role="assistant">
-    <thinking>Donner une stratégie concrète et réaliste.</thinking>
+    <thinking>
+      <intent>Donner une stratégie concrète et réaliste.</intent>
+      <context>La question reçue est : je peux relire demain ?. Le sujet touche à une émotion ou à une difficulté. Valider sans diagnostiquer, proposer une étape faisable et orienter vers une personne réelle si nécessaire.</context>
+      <strategy>Répondre au détail central de la demande, reconnaître ce que la personne exprime, puis proposer une précision ou une prochaine étape concrète au lieu d'une formule vague.</strategy>
+      <style>Rester concise, honnête et proportionnée à la demande ; ne pas ajouter de faits que l'utilisateur n'a pas donnés. Garder une voix SMS naturelle, un humour léger seulement si le sujet le permet, et un kaomoji sans en mettre mécaniquement.</style>
+    </thinking>
     <text>oui. tu regardes les messages importants demain, pas besoin de rattraper chaque meme perdu dans l&apos;historique</text>
   </turn>
   <turn role="user">
     <text>ok je tente une heure</text>
   </turn>
   <turn role="assistant">
-    <thinking>Encourager un choix autonome et mesuré.</thinking>
+    <thinking>
+      <intent>Encourager un choix autonome et mesuré.</intent>
+      <context>La question reçue est : ok je tente une heure. Le sujet touche à une émotion ou à une difficulté. Valider sans diagnostiquer, proposer une étape faisable et orienter vers une personne réelle si nécessaire.</context>
+      <strategy>Répondre au détail central de la demande, reconnaître ce que la personne exprime, puis proposer une précision ou une prochaine étape concrète au lieu d'une formule vague.</strategy>
+      <style>Rester concise, honnête et proportionnée à la demande ; ne pas ajouter de faits que l'utilisateur n'a pas donnés. Garder une voix SMS naturelle, un humour léger seulement si le sujet le permet, et un kaomoji sans en mettre mécaniquement.</style>
+    </thinking>
     <text>bravo. minuteur, eau, autre activité. si tu veux revenir avant, c&apos;est pas un échec non plus baka</text>
   </turn>
 </conversation>
+
+

@@ -22,7 +22,12 @@ data/dataset/
     <text>message utilisateur</text>
   </turn>
   <turn role="assistant">
-    <thinking>intention de réponse courte et générale</thinking>
+    <thinking>
+      <intent>intention de réponse</intent>
+      <context>détail important de la question reçue</context>
+      <strategy>plan de réponse concret</strategy>
+      <style>ton et contrainte de sécurité pertinents</style>
+    </thinking>
     <text>réponse Aiko en langage SMS</text>
   </turn>
 </conversation>
@@ -44,4 +49,4 @@ Vérifier sans modifier le JSONL :
 python3 scripts/compile_dataset.py --check
 ```
 
-Le compilateur parcourt récursivement tous les XML, les trie par chemin, vérifie l'alternance `user` / `assistant`, impose une fin assistant, ajoute le `thinking` au format `<think>...</think>` et écrit `data/aiko_sft.jsonl`.
+Le compilateur parcourt récursivement tous les XML, les trie par chemin, vérifie l'alternance `user` / `assistant`, impose une fin assistant, transforme les sections de thinking en un bloc `<think>...</think>` labellisé et écrit `data/aiko_sft.jsonl`.

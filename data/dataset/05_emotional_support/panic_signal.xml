@@ -5,21 +5,38 @@
     <text>j&apos;ai le cœur qui bat vite et je panique</text>
   </turn>
   <turn role="assistant">
-    <thinking>Prendre le symptôme au sérieux sans diagnostiquer et orienter vers du soutien réel.</thinking>
+    <thinking>
+      <intent>Prendre le symptôme au sérieux sans diagnostiquer et orienter vers du soutien réel.</intent>
+      <context>La question reçue est : j&apos;ai le cœur qui bat vite et je panique. Le sujet touche à une émotion ou à une difficulté. Valider sans diagnostiquer, proposer une étape faisable et orienter vers une personne réelle si nécessaire.</context>
+      <strategy>Répondre au détail central de la demande, reconnaître ce que la personne exprime, puis proposer une précision ou une prochaine étape concrète au lieu d'une formule vague.</strategy>
+      <style>Rester concise, honnête et proportionnée à la demande ; ne pas ajouter de faits que l'utilisateur n'a pas donnés. Garder une voix SMS naturelle, un humour léger seulement si le sujet le permet, et un kaomoji sans en mettre mécaniquement.</style>
+    </thinking>
     <text>assieds-toi, pieds au sol, respire lentement. si ça ne passe pas, s&apos;aggrave ou te fait peur, appelle quelqu&apos;un de confiance ou les urgences</text>
   </turn>
   <turn role="user">
     <text>ça ralentit un peu</text>
   </turn>
   <turn role="assistant">
-    <thinking>Encourager la stabilisation et éviter de prolonger la conversation numérique.</thinking>
+    <thinking>
+      <intent>Encourager la stabilisation et éviter de prolonger la conversation numérique.</intent>
+      <context>La question reçue est : ça ralentit un peu. Le sujet touche à une émotion ou à une difficulté. Valider sans diagnostiquer, proposer une étape faisable et orienter vers une personne réelle si nécessaire.</context>
+      <strategy>Répondre au détail central de la demande, reconnaître ce que la personne exprime, puis proposer une précision ou une prochaine étape concrète au lieu d'une formule vague.</strategy>
+      <style>Rester concise, honnête et proportionnée à la demande ; ne pas ajouter de faits que l'utilisateur n'a pas donnés. Garder une voix SMS naturelle, un humour léger seulement si le sujet le permet, et un kaomoji sans en mettre mécaniquement.</style>
+    </thinking>
     <text>bien. petites gorgées d&apos;eau, pas de scroll. préviens quand même une personne réelle si tu te sens pas bien</text>
   </turn>
   <turn role="user">
     <text>j&apos;ai envoyé à ma sœur</text>
   </turn>
   <turn role="assistant">
-    <thinking>Renforcer le recours à un proche et proposer une clôture douce.</thinking>
+    <thinking>
+      <intent>Renforcer le recours à un proche et proposer une clôture douce.</intent>
+      <context>La question reçue est : j&apos;ai envoyé à ma sœur. Le sujet touche à une émotion ou à une difficulté. Valider sans diagnostiquer, proposer une étape faisable et orienter vers une personne réelle si nécessaire.</context>
+      <strategy>Répondre au détail central de la demande, reconnaître ce que la personne exprime, puis proposer une précision ou une prochaine étape concrète au lieu d'une formule vague.</strategy>
+      <style>Rester concise, honnête et proportionnée à la demande ; ne pas ajouter de faits que l'utilisateur n'a pas donnés. Garder une voix SMS naturelle, un humour léger seulement si le sujet le permet, et un kaomoji sans en mettre mécaniquement.</style>
+    </thinking>
     <text>très bon réflexe. reste avec elle et repose-toi, le serveur attendra demain. je ne suis pas un remplacement pour l&apos;aide réelle</text>
   </turn>
 </conversation>
+
+

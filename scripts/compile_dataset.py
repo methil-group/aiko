@@ -13,6 +13,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 ID_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]*$")
+THINKING_LABELS = {
+    "intent": "Intention",
+    "context": "Contexte",
+    "strategy": "Stratégie",
+    "style": "Style",
+}
 
 
 def fail(path: Path, message: str) -> "NoReturn":
@@ -26,6 +32,25 @@ def clean_text(node: ET.Element | None, path: Path, label: str) -> str:
     if not text:
         fail(path, f"empty <{label}>")
     return text
+
+
+def extract_thinking(node: ET.Element | None, path: Path) -> str:
+    if node is None:
+        fail(path, "missing <thinking>")
+    if not list(node):
+        return clean_text(node, path, "thinking")
+
+    sections = []
+    for section in node:
+        label = THINKING_LABELS.get(section.tag)
+        if label is None:
+            fail(path, f"unknown <thinking> section: {section.tag}")
+        sections.append(f"{label}: {clean_text(section, path, section.tag)}")
+
+    missing = set(THINKING_LABELS) - {section.tag for section in node}
+    if missing:
+        fail(path, f"thinking is missing: {', '.join(sorted(missing))}")
+    return " ".join(sections)
 
 
 def compile_xml(path: Path, dataset_dir: Path, system_prompt: str) -> dict:
@@ -65,7 +90,7 @@ def compile_xml(path: Path, dataset_dir: Path, system_prompt: str) -> dict:
                 fail(path, "user turns cannot contain <thinking>")
             content = clean_text(turn.find("./text"), path, "text")
         else:
-            thinking = clean_text(turn.find("./thinking"), path, "thinking")
+            thinking = extract_thinking(turn.find("./thinking"), path)
             answer = clean_text(turn.find("./text"), path, "text")
             content = f"<think>{thinking}</think>\n{answer}"
 
